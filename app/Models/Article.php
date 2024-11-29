@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'designation',
+        'marque',
+        'reference',
+        'qtestock',
+        'prix',
+        'imageart',
+        'scategorieID'
+    ];
+    public function scategorie()
+    {
+        return $this->belongsTo(Scategorie::class, "scategorieID");
+    }
 }
